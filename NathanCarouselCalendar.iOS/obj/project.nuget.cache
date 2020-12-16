@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "J5QlhA8mHDEblpiLEUWjnYW4VzA+r1+kmFArYtFAvluYhGrg9ANPkVXP8SsCPAx1WuJeVY/ja4d81PCdiLnVMw==",
+  "success": true,
+  "projectFilePath": "/Users/nathan-kim/Projects/NathanCarouselCalendar/NathanCarouselCalendar.iOS/NathanCarouselCalendar.iOS.csproj",
+  "expectedPackageFiles": [
+    "/Users/nathan-kim/.nuget/packages/xamarin.essentials/1.5.3.2/xamarin.essentials.1.5.3.2.nupkg.sha512",
+    "/Users/nathan-kim/.nuget/packages/xamarin.forms/4.8.0.1451/xamarin.forms.4.8.0.1451.nupkg.sha512"
+  ],
+  "logs": []
+}
