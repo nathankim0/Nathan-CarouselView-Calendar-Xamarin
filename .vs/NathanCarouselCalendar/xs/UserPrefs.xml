@@ -2,9 +2,7 @@
   <MonoDevelop.Ide.ItemProperties.NathanCarouselCalendar.iOS FirstBuild="True" />
   <MonoDevelop.Ide.Workbench ActiveDocument="NathanCarouselCalendar/MainPage.cs">
     <Files>
-      <File FileName="NathanCarouselCalendar/MainPage.cs" Line="4" Column="1" />
-      <File FileName="NathanCarouselCalendar/Month.cs" Line="5" Column="33" />
-      <File FileName="NathanCarouselCalendar/MonthViewModel.cs" Line="4" Column="1" />
+      <File FileName="NathanCarouselCalendar/MainPage.cs" Line="16" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,10 +17,9 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.NathanCarouselCalendar FirstBuild="True" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.NathanCarouselCalendar.Android FirstBuild="True" PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
+  <MonoDevelop.Ide.ItemProperties.NathanCarouselCalendar.Android PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

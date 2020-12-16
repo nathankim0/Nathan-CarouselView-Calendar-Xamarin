@@ -38,8 +38,8 @@ namespace NathanCarouselCalendar
               {
                   var dayGrid = new Grid
                   {
-                      ColumnSpacing = 0,
-                      RowSpacing = 0,
+                      ColumnSpacing = 10,
+                      RowSpacing = 10,
                       HorizontalOptions = LayoutOptions.FillAndExpand,
                       VerticalOptions = LayoutOptions.FillAndExpand,
                   };

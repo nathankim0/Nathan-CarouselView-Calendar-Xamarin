@@ -7,8 +7,6 @@ namespace NathanCarouselCalendar
     public class Month
     {
         public int ThisMonth { get; set; }
-        //  public Dictionary<int, Color> Day { get; set; } = new Dictionary<int, Color>();
-        //  public int[] Day { get; set; } = new int[49];
         public Day[] Day { get; set; } = new Day[49];
 
         public Month()
