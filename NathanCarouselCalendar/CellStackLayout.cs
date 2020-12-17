@@ -25,15 +25,5 @@ namespace NathanCarouselCalendar
             get { return (DateTime)GetValue(DateTimeInfoProperty); }
             set { SetValue(DateTimeInfoProperty, value); }
         }
-
-        //public DateTime DateTimeInfo
-        //{
-        //    get { return dateTime; }
-        //    set
-        //    {
-        //        dateTime = value;
-        //    }
-        //}
-
     }
 }
