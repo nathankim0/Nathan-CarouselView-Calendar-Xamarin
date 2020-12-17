@@ -1,5 +1,6 @@
 ﻿using System;
 using Xamarin.Forms;
+
 namespace NathanCarouselCalendar
 {
     public class CellStackLayout : StackLayout
@@ -16,14 +17,23 @@ namespace NathanCarouselCalendar
             VerticalOptions = LayoutOptions.Start;
         }
 
+        public static readonly BindableProperty DateTimeInfoProperty =
+  BindableProperty.Create("DateTimeInfo", typeof(DateTime), typeof(CellStackLayout), null);
+
         public DateTime DateTimeInfo
         {
-            get { return dateTime; }
-            set
-            {
-                dateTime = value;
-            }
+            get { return (DateTime)GetValue(DateTimeInfoProperty); }
+            set { SetValue(DateTimeInfoProperty, value); }
         }
+
+        //public DateTime DateTimeInfo
+        //{
+        //    get { return dateTime; }
+        //    set
+        //    {
+        //        dateTime = value;
+        //    }
+        //}
 
     }
 }

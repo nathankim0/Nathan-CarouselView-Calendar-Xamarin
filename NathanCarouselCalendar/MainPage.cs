@@ -6,6 +6,9 @@ namespace NathanCarouselCalendar
 {
     public partial class MainPage : ContentPage
     {
+        public event EventHandler<DateTime> DateSelectedEvent;
+
+        private readonly TapGestureRecognizer _tapGestureRecognizer = new TapGestureRecognizer();
         private static string[] WeekDays = { "일", "월", "화", "수", "목", "금", "토" };
 
         public MainPage()
@@ -24,10 +27,13 @@ namespace NathanCarouselCalendar
 
             BindingContext = viewModel;
 
+            _tapGestureRecognizer.Tapped += DateSelected;
+
             var carouselView = new CarouselView
             {
-                HeightRequest = 300,
-                WidthRequest = 300,
+                //HeightRequest = 300,
+                //WidthRequest = 300,
+                Margin=20,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
             };
@@ -38,8 +44,8 @@ namespace NathanCarouselCalendar
               {
                   var dayGrid = new Grid
                   {
-                      ColumnSpacing = 10,
-                      RowSpacing = 10,
+                      ColumnSpacing = 15,
+                      RowSpacing = 15,
                       HorizontalOptions = LayoutOptions.FillAndExpand,
                       VerticalOptions = LayoutOptions.FillAndExpand,
                   };
@@ -63,7 +69,7 @@ namespace NathanCarouselCalendar
                   {
                       for (var col = 0; col < 7; col++)
                       {
-                          var cell = new StackLayout
+                          var cell = new CellStackLayout
                           {
                               VerticalOptions = LayoutOptions.FillAndExpand,
                               HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -76,13 +82,26 @@ namespace NathanCarouselCalendar
                               HorizontalTextAlignment = TextAlignment.Center,
                           };
                           var index = row * 7 + col;
-                          
+
+                          cell.SetBinding(CellStackLayout.DateTimeInfoProperty, $"Day[{index}].ThisDateTime");
                           label.SetBinding(Label.TextProperty, $"Day[{index}].ThisDay");
                           label.SetBinding(Label.TextColorProperty, $"Day[{index}].Color");
+                          cell.SetBinding(IsVisibleProperty, $"Day[{index}].IsEnabled");
+
                           cell.Children.Add(label);
+
+                          AddTapGesture(cell);
+
                           dayGrid.Children.Add(cell, col, row);
                       }
                   }
+                  var yearLabel = new Label
+                  {
+                      FontSize = 20,
+                      FontAttributes = FontAttributes.Bold
+                  };
+                  yearLabel.SetBinding(Label.TextProperty, "ThisYear");
+
                   var monthLabel = new Label
                   {
                       FontSize = 20,
@@ -90,14 +109,23 @@ namespace NathanCarouselCalendar
                   };
                   monthLabel.SetBinding(Label.TextProperty, "ThisMonth");
 
+                  var yearAndMonthStackLayout = new StackLayout
+                  {
+                      Orientation = StackOrientation.Horizontal,
+                      Children = {yearLabel, monthLabel}
+                  };
+
                   return new StackLayout
                   {
                       Children =
                       {
-                          monthLabel,
+                          yearAndMonthStackLayout,
 
                           new Frame
                           {
+                              HasShadow=false,
+                              Padding=0,
+                              Margin=0,
                               Content= dayGrid
                           }
                       }
@@ -131,12 +159,20 @@ namespace NathanCarouselCalendar
 
             var previousMonthDateTime = dateTime.AddMonths(-1);
             var previousMonthDaysInMonth = DateTime.DaysInMonth(previousMonthDateTime.Year, previousMonthDateTime.Month);
+
+            var nextMonthDateTime= dateTime.AddMonths(1);
+
             var counter = 0;
             var nextMonthCounter = 1;
 
+            var thisDateTime = new DateTime();
+
+            var isEnabled = false;
+
             var month = new Month
             {
-                ThisMonth = dateTime.Month
+                ThisYear = dateTime.Year.ToString()+"년",
+                ThisMonth = dateTime.Month.ToString()+"월"
             };
 
             for (int row = 0; row < 7; row++)
@@ -167,30 +203,68 @@ namespace NathanCarouselCalendar
                         {
                             date = previousMonthDaysInMonth - (startingDay - counter - 1);
                             color = Color.Gray;
+
+                            thisDateTime = previousMonthDateTime;
+                            isEnabled = false;
                         }
 
                         else if (counter >= startingDay && (counter - startingDay) < nowMonthDaysInMonth)
                         {
                             date = counter + 1 - startingDay;
                             color = Color.Black;
+
+                            thisDateTime = dateTime;
+                            isEnabled = true;
                         }
 
                         else if (counter >= (nowMonthDaysInMonth + startingDay))
                         {
                             date = nextMonthCounter++;
                             color = Color.Gray;
+
+                            thisDateTime = nextMonthDateTime;
+                            isEnabled = false;
                         }
+
+                        try
+                        {
+                            month.Day[row * 7 + col].ThisDateTime = new DateTime(thisDateTime.Year, thisDateTime.Month, date);
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
+
                         month.Day[row * 7 + col].ThisDay = date.ToString();
                         month.Day[row * 7 + col].Color = color;
+                        month.Day[row * 7 + col].IsEnabled = isEnabled;
+
 
                         counter++;
                     }
 
                 }
             }
+            
             return month;
         }
+        private void AddTapGesture(StackLayout cell)
+        {
+            cell.GestureRecognizers.Clear();
+            cell.GestureRecognizers.Add(_tapGestureRecognizer);
+        }
 
+        private async void DateSelected(object s, EventArgs e)
+        {
+            var cell = s as CellStackLayout;
+
+            var dateString = $"{cell.DateTimeInfo.Year}-{cell.DateTimeInfo.Month}-{cell.DateTimeInfo.Day}";
+
+            bool answer = await App.Current.MainPage.DisplayAlert("Date Selected!", dateString + "로 변경하시겠습니까?", "OK", "Cancel");
+
+            if (answer) { DateSelectedEvent?.Invoke(this, cell.dateTime); }
+
+        }
     }
 }
 

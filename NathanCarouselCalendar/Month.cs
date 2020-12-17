@@ -6,7 +6,9 @@ namespace NathanCarouselCalendar
 {
     public class Month
     {
-        public int ThisMonth { get; set; }
+
+        public string ThisYear { get; set; }
+        public string ThisMonth { get; set; }
         public Day[] Day { get; set; } = new Day[49];
 
         public Month()
@@ -19,7 +21,11 @@ namespace NathanCarouselCalendar
     }
     public class Day
     {
+        public DateTime ThisDateTime { get; set; }
+
         public string ThisDay { get; set; } 
         public Color Color { get; set; }
+
+        public bool IsEnabled { get; set; }
     }
 }

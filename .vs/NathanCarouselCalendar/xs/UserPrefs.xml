@@ -1,8 +1,11 @@
-﻿<Properties StartupConfiguration="{D4F8154C-D00B-4F23-B344-65132A323BA6}|Default">
-  <MonoDevelop.Ide.ItemProperties.NathanCarouselCalendar.iOS FirstBuild="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="NathanCarouselCalendar/MainPage.cs">
+﻿<Properties StartupConfiguration="{453D3DE6-8274-46AA-85F0-9BCFA8F6F695}|Default">
+  <MonoDevelop.Ide.ItemProperties.NathanCarouselCalendar.iOS TriggeredFromHotReload="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.98B20888-2A99-4DC3-8AFE-74DC0E4F4B9A" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="NathanCarouselCalendar/CellStackLayout.cs">
     <Files>
-      <File FileName="NathanCarouselCalendar/MainPage.cs" Line="16" Column="1" />
+      <File FileName="NathanCarouselCalendar/MainPage.cs" Line="88" Column="38" />
+      <File FileName="NathanCarouselCalendar/Month.cs" Line="25" Column="1" />
+      <File FileName="NathanCarouselCalendar/MonthViewModel.cs" Line="23" Column="10" />
+      <File FileName="NathanCarouselCalendar/CellStackLayout.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -10,7 +13,7 @@
           <Node name="NathanCarouselCalendar" expanded="True">
             <Node name="NathanCarouselCalendar" expanded="True">
               <Node name="App.xaml" expanded="True" />
-              <Node name="MainPage.cs" selected="True" />
+              <Node name="CellStackLayout.cs" selected="True" />
             </Node>
           </Node>
         </State>
@@ -19,7 +22,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.NathanCarouselCalendar.Android PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
+  <MonoDevelop.Ide.ItemProperties.NathanCarouselCalendar.Android TriggeredFromHotReload="False" PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
