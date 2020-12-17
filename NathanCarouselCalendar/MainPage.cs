@@ -76,8 +76,8 @@ namespace NathanCarouselCalendar
                           };
                           var label = new Label
                           {
-                              VerticalOptions = LayoutOptions.FillAndExpand,
-                              HorizontalOptions = LayoutOptions.FillAndExpand,
+                              VerticalOptions = LayoutOptions.CenterAndExpand,
+                              HorizontalOptions = LayoutOptions.CenterAndExpand,
                               VerticalTextAlignment = TextAlignment.Center,
                               HorizontalTextAlignment = TextAlignment.Center,
                           };
@@ -90,7 +90,8 @@ namespace NathanCarouselCalendar
 
                           cell.Children.Add(label);
 
-                          AddTapGesture(cell);
+                          if (row != 0) { AddTapGesture(cell); }
+                          
 
                           dayGrid.Children.Add(cell, col, row);
                       }
@@ -117,12 +118,14 @@ namespace NathanCarouselCalendar
 
                   return new StackLayout
                   {
+                      Padding=10,
                       Children =
                       {
                           yearAndMonthStackLayout,
 
                           new Frame
                           {
+                              BorderColor=Color.DeepPink,
                               HasShadow=false,
                               Padding=0,
                               Margin=0,
@@ -193,6 +196,7 @@ namespace NathanCarouselCalendar
 
                         month.Day[row * 7 + col].ThisDay = WeekDays[col];
                         month.Day[row * 7 + col].Color = color;
+                        month.Day[row * 7 + col].IsEnabled = true;
                     }
                     else
                     {
@@ -211,7 +215,18 @@ namespace NathanCarouselCalendar
                         else if (counter >= startingDay && (counter - startingDay) < nowMonthDaysInMonth)
                         {
                             date = counter + 1 - startingDay;
-                            color = Color.Black;
+
+                            if (DateTime.Now.Year == dateTime.Year &&
+                                    DateTime.Now.Month == dateTime.Month &&
+                                    DateTime.Now.Day == date)
+                            {
+                                color = Color.Accent;
+                            }
+                            else
+                            {
+                                color = Color.Black;
+                            }
+                            
 
                             thisDateTime = dateTime;
                             isEnabled = true;
