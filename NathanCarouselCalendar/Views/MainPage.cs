@@ -21,7 +21,7 @@ namespace NathanCarouselCalendar
 
         public MainPage()
         {
-
+            BackgroundColor = Color.DarkOliveGreen;
             var now = DateTime.Now;
 
 
@@ -55,8 +55,6 @@ namespace NathanCarouselCalendar
                     //RowSpacing = 15,
                     HorizontalOptions = LayoutOptions.FillAndExpand,
                     VerticalOptions = LayoutOptions.FillAndExpand,
-                    BackgroundColor = Color.White
-
                 };
                 dayGrid.RowDefinitions.Add(new RowDefinition {Height = new GridLength(1, GridUnitType.Auto)});
 
@@ -79,6 +77,7 @@ namespace NathanCarouselCalendar
                             VerticalOptions = LayoutOptions.FillAndExpand,
                             HorizontalOptions = LayoutOptions.FillAndExpand,
                         };
+
                         var label = new Label
                         {
                             VerticalOptions = LayoutOptions.CenterAndExpand,
@@ -114,7 +113,7 @@ namespace NathanCarouselCalendar
                             Padding = 0,
                             BorderColor = Color.White,
                             HasShadow=false,
-                            CornerRadius=20,
+                        //    CornerRadius=20,
                             IsClippedToBounds=true
                         };
                         

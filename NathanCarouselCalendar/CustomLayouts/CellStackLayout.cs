@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 
+
 namespace NathanCarouselCalendar
 {
     public class CellStackLayout : StackLayout

@@ -1,20 +1,25 @@
 ﻿<Properties StartupConfiguration="{453D3DE6-8274-46AA-85F0-9BCFA8F6F695}|Default">
-  <MonoDevelop.Ide.ItemProperties.NathanCarouselCalendar.iOS TriggeredFromHotReload="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.98B20888-2A99-4DC3-8AFE-74DC0E4F4B9A" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="NathanCarouselCalendar/MainPage.cs">
+  <MonoDevelop.Ide.ItemProperties.NathanCarouselCalendar.iOS TriggeredFromHotReload="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.326E3EF0-5E07-4AE4-9FD4-E991DC1E838C" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="NathanCarouselCalendar/Views/MainPage.cs">
     <Files>
-      <File FileName="NathanCarouselCalendar/MainPage.cs" Line="75" Column="26" />
-      <File FileName="NathanCarouselCalendar/Month.cs" Line="33" Column="45" />
-      <File FileName="NathanCarouselCalendar/MonthViewModel.cs" Line="11" Column="36" />
-      <File FileName="NathanCarouselCalendar/CellStackLayout.cs" Line="20" Column="9" />
+      <File FileName="NathanCarouselCalendar/ViewModel/MonthViewModel.cs" Line="23" Column="10" />
+      <File FileName="NathanCarouselCalendar/Model/Month.cs" />
+      <File FileName="NathanCarouselCalendar/Views/MainPage.cs" Line="321" Column="30" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="NathanCarouselCalendar" expanded="True">
             <Node name="NathanCarouselCalendar" expanded="True">
+              <Node name="CustomLayouts" expanded="True" />
+              <Node name="Model" expanded="True" />
+              <Node name="ViewModel" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="MainPage.cs" selected="True" />
+              </Node>
               <Node name="App.xaml" expanded="True" />
-              <Node name="MainPage.cs" selected="True" />
             </Node>
+            <Node name="NathanCarouselCalendar.Android" expanded="True" />
           </Node>
         </State>
       </Pad>
